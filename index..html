@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tayyar Eren — Systemadministrator · BWL · Quereinsteiger</title>
+  <meta name="description"
+    content="Portfolio von Tayyar Eren — Systemadministrator mit BWL-Bachelor, 10 Jahren Unternehmertum und Buchhaltungs-Expertise (DATEV, Lexware).">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-2: #f6f6f6;
+      --surface: #ffffff;
+      --surface-2: #f6f6f6;
+      --text: #000000;
+      --text-dim: #000000;
+      --text-mute: #000000;
+      --accent: #000000;
+      --accent-soft: rgba(0, 0, 0, 0.08);
+      --accent-glow: rgba(0, 0, 0, 0.12);
+      --border: rgba(0, 0, 0, 0.08);
+      --border-strong: rgba(0, 0, 0, 0.14);
+      --teal: #000000;
+      --gold: #000000;
+      --nav-bg: rgba(255, 255, 255, 0.95);
+      --noise-opacity: 0.02;
+      --noise-blend: overlay;
+      --shadow: rgba(0, 0, 0, 0.08);
+      --font-display: Calibri, Arial, sans-serif;
+      --font-body: Calibri, Arial, sans-serif;
+      --font-mono: Calibri, Arial, sans-serif;
+    }
+
+    body[data-theme="light"] {
+      --bg: #ffffff;
+      --bg-2: #f6f6f6;
+      --surface: #ffffff;
+      --surface-2: #f6f6f6;
+      --text: #000000;
+      --text-dim: #000000;
+      --text-mute: #000000;
+      --accent: #000000;
+      --accent-soft: rgba(0, 0, 0, 0.08);
+      --accent-glow: rgba(0, 0, 0, 0.12);
+      --border: rgba(0, 0, 0, 0.10);
+      --border-strong: rgba(0, 0, 0, 0.18);
+      --teal: #000000;
+      --gold: #000000;
+      --nav-bg: rgba(255, 255, 255, 0.95);
+      --noise-opacity: 0.04;
+      --noise-blend: multiply;
+      --shadow: rgba(0, 0, 0, 0.18);
+    }
+
+    body[data-theme="dark"] {
+      --bg: #0d0d0e;
+      --bg-2: #131315;
+      --surface: #1a1a1c;
+      --surface-2: #222226;
+      --text: #ededeb;
+      --text-dim: #a3a3a0;
+      --text-mute: #6b6b68;
+      --accent: #ff6b35;
+      --accent-soft: rgba(255, 107, 53, 0.12);
+      --accent-glow: rgba(255, 107, 53, 0.25);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.14);
+      --teal: #5ee2c0;
+      --gold: #e4b04a;
+      --nav-bg: rgba(13, 13, 14, 0.7);
+      --noise-opacity: 0.025;
+      --noise-blend: overlay;
+      --shadow: rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: var(--noise-opacity);
+      pointer-events: none;
+      z-index: 100;
+      mix-blend-mode: var(--noise-blend);
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      top: -20%;
+      right: -10%;
+      width: 60%;
+      height: 60%;
+      background: radial-gradient(circle, var(--accent-glow), transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(80px);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.4s ease;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
+      transition: color 0.25s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .lang-toggle {
+      display: flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+    }
+
+    .lang-toggle button {
+      background: transparent;
+      border: none;
+      color: var(--text-mute);
+      padding: 0.35rem 0.85rem;
+      cursor: pointer;
+      border-radius: 999px;
+      transition: all 0.25s ease;
+      font-family: inherit;
+      font-size: inherit;
+      letter-spacing: 0.05em;
+    }
+
+    .lang-toggle button.active {
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 500;
+    }
+
+    .nav-controls {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .theme-toggle {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-dim);
+      transition: all 0.25s ease;
+      padding: 0;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: rotate(15deg);
+    }
+
+    .theme-toggle svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .theme-toggle .icon-sun {
+      display: none;
+    }
+
+    .theme-toggle .icon-moon {
+      display: block;
+    }
+
+    body[data-theme="light"] .theme-toggle .icon-sun {
+      display: block;
+    }
+
+    body[data-theme="light"] .theme-toggle .icon-moon {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .nav-controls {
+        gap: 0.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links a {
+        display: none;
+      }
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .section-sidebar {
+      position: fixed;
+      top: 50%;
+      left: 1.25rem;
+      right: auto;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.85rem;
+      padding: 0;
+      background: transparent;
+      border: none;
+      z-index: 40;
+    }
+
+    .section-sidebar .sidebar-drawer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.4rem;
+      height: 3.4rem;
+      overflow: visible;
+      border-radius: 0 999px 999px 0;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: background 0.25s ease, transform 0.25s ease;
+      text-decoration: none;
+      color: var(--text);
+      position: relative;
+      padding: 0;
+      z-index: 1;
+    }
+
+    .section-sidebar .drawer-label {
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%) translateX(-1rem);
+      opacity: 0;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 8rem;
+      padding: 0.55rem 0.95rem;
+      background: var(--drawer-label-bg, rgba(255, 255, 255, 0.92));
+      border: 1px solid transparent;
+      border-radius: 999px;
+      white-space: nowrap;
+      font-family: var(--font-mono);
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--drawer-label-color, var(--text));
+      pointer-events: none;
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.18);
+      z-index: 10;
+    }
+
+    .section-sidebar .drawer-label::before {
+      content: '';
+      position: absolute;
+      left: -0.35rem;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      width: 0.55rem;
+      height: 0.55rem;
+      background: var(--drawer-label-color, var(--text));
+      border-radius: 2px;
+    }
+
+    .section-sidebar .sidebar-drawer:hover {
+      background: rgba(255, 255, 255, 0.12);
+      z-index: 3;
+    }
+
+    .section-sidebar .sidebar-drawer:hover .drawer-label {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0.8rem);
+      z-index: 10;
+    }
+
+    .section-sidebar .drawer-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.2rem;
+      min-height: 2.2rem;
+      margin-right: 0.55rem;
+      flex-shrink: 0;
+      color: inherit;
+    }
+
+    .section-sidebar .drawer-shape {
+      width: 1.1rem;
+      height: 1.1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .drawer-shape.circle {
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .drawer-shape.square {
+      border-radius: 18%;
+      background: currentColor;
+    }
+
+    .drawer-shape.triangle {
+      width: 0;
+      height: 0;
+      border-left: 0.55rem solid transparent;
+      border-right: 0.55rem solid transparent;
+      border-bottom: 1rem solid currentColor;
+      background: transparent;
+    }
+
+    .drawer-shape.band {
+      width: 1rem;
+      height: 0.2rem;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .section-sidebar .drawer-1 {
+      color: #2dc26b;
+      background: rgba(45, 194, 107, 0.14);
+      --drawer-label-bg: rgba(45, 194, 107, 0.18);
+      --drawer-label-color: #2dbe70;
+    }
+
+    .section-sidebar .drawer-2 {
+      color: #7fc241;
+      background: rgba(127, 194, 65, 0.14);
+      --drawer-label-bg: rgba(127, 194, 65, 0.18);
+      --drawer-label-color: #6ea528;
+    }
+
+    .section-sidebar .drawer-3 {
+      color: #ff9f1c;
+      background: rgba(255, 159, 28, 0.14);
+      --drawer-label-bg: rgba(255, 159, 28, 0.18);
+      --drawer-label-color: #db7f00;
+    }
+
+    .section-sidebar .drawer-4 {
+      color: #2f6bd1;
+      background: rgba(47, 107, 209, 0.14);
+      --drawer-label-bg: rgba(47, 107, 209, 0.18);
+      --drawer-label-color: #1f4ec0;
+    }
+
+    .section-sidebar .drawer-5 {
+      color: #3f90d9;
+      background: rgba(63, 144, 217, 0.14);
+      --drawer-label-bg: rgba(63, 144, 217, 0.18);
+      --drawer-label-color: #2469c5;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .section-sidebar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .section-sidebar {
+        display: none;
+      }
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-mute);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      margin-right: 0.5rem;
+      box-shadow: 0 0 12px var(--teal);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.1s forwards;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      line-height: 0.95;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.2s forwards;
+    }
+
+    .hero-title .italic {
+      font-style: normal;
+      color: var(--text);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-dim);
+      margin-bottom: 2.5rem;
+      max-width: 580px;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.5s forwards;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.7s forwards;
+    }
+
+    .hero-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.45rem 0.95rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 999px;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+      transition: all 0.25s ease;
+    }
+
+    .hero-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .hero-tag.gold {
+      color: var(--gold);
+      border-color: rgba(228, 176, 74, 0.3);
+    }
+
+    .hero-tag.gold:hover {
+      border-color: var(--gold);
+    }
+
+    .hero-photo {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 4/5;
+      justify-self: end;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.4s forwards;
+    }
+
+    @media (max-width: 900px) {
+      .hero-photo {
+        justify-self: start;
+        max-width: 280px;
+      }
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px var(--shadow);
+    }
+
+    .photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--accent-soft) 0%, transparent 50%, rgba(94, 226, 192, 0.08) 100%);
+      z-index: 1;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+      color: var(--text-mute);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
+
+    .photo-placeholder svg {
+      width: 60px;
+      height: 60px;
+      opacity: 0.3;
+      margin-bottom: 1rem;
+    }
+
+    .photo-placeholder-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .photo-info {
+      position: absolute;
+      bottom: -2.5rem;
+      left: 0;
+      right: 0;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-mute);
+      letter-spacing: 0.1em;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .photo-frame img,
+    .photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      position: relative;
+      z-index: 2;
+    }
+
+    section {
+      padding: 7rem 0;
+      position: relative;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 4rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+    }
+
+    .section-number {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    .section-title .italic {
+      font-style: normal;
+      color: var(--text);
+    }
+
+    .italic {
+      font-style: normal !important;
+      font-family: inherit !important;
+      color: inherit !important;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+    }
+
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      color: var(--text-dim);
+      max-width: 640px;
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .about-text .accent-text {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .about-meta {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+
+    .about-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-meta-label {
+      color: var(--text-mute);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .about-meta-value {
+      color: var(--text);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 12px;
+      bottom: 12px;
+      width: 1px;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--border) 100%);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 3rem;
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 0 4px var(--bg), 0 0 20px var(--accent-glow);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item.current::before {
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .timeline-item.future::before {
+      border-color: var(--text-mute);
+      border-style: dashed;
+    }
+
+    .timeline-period {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .timeline-item.future .timeline-period {
+      color: var(--text-mute);
+    }
+
+    .timeline-title {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+      line-height: 1.2;
+    }
+
+    .timeline-org {
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    .timeline-desc {
+      color: var(--text-dim);
+      font-size: 0.98rem;
+      max-width: 600px;
+    }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .timeline-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.25rem 0.7rem;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text-dim);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem 1.8rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 0%, var(--accent-soft) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .skill-card:hover::before {
+      opacity: 1;
+    }
+
+    .skill-card.business::before {
+      background: linear-gradient(135deg, transparent 0%, rgba(228, 176, 74, 0.12) 100%);
+    }
+
+    .skill-card.business:hover {
+      border-color: var(--gold);
+    }
+
+    .skill-card.business .skill-icon {
+      color: var(--gold);
+    }
+
+    .skill-card>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .skill-icon {
+      width: 36px;
+      height: 36px;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .skill-list {
+      list-style: none;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+
+    .skill-list li {
+      padding: 0.35rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skill-list li:last-child {
+      border-bottom: none;
+    }
+
+    .skill-list li::before {
+      content: '→ ';
+      color: var(--accent);
+      opacity: 0.6;
+    }
+
+    .skill-card.business .skill-list li::before {
+      color: var(--gold);
+    }
+
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 2rem;
+      align-items: start;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 900px) {
+      .project-card {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding: 1.8rem;
+      }
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--accent);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--border-strong);
+      background: var(--surface-2);
+    }
+
+    .project-card:hover::before {
+      transform: scaleY(1);
+    }
+
+    .project-number {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-mute);
+      letter-spacing: 0.1em;
+      padding-top: 0.4rem;
+    }
+
+    .project-content {
+      min-width: 0;
+    }
+
+    .project-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .project-badge {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 0.2rem 0.6rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 4px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .project-desc {
+      color: var(--text-dim);
+      margin-bottom: 1.2rem;
+      max-width: 640px;
+      font-size: 0.98rem;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tech-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 0.3rem 0.7rem;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text-dim);
+    }
+
+    .project-arrow {
+      width: 32px;
+      height: 32px;
+      color: var(--text-mute);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .project-card:hover .project-arrow {
+      color: var(--accent);
+      transform: translate(4px, -4px);
+    }
+
+    .languages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .lang-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.8rem;
+    }
+
+    .lang-flag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .lang-name {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .lang-level {
+      color: var(--text-dim);
+      font-size: 0.88rem;
+      margin-bottom: 1rem;
+    }
+
+    .lang-bar {
+      height: 3px;
+      background: var(--bg-2);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .lang-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+      border-radius: 999px;
+      transition: width 1.5s ease;
+    }
+
+    .goal-card {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+      border: 1px solid var(--border-strong);
+      border-radius: 16px;
+      padding: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .goal-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 60%;
+      height: 200%;
+      background: radial-gradient(circle, var(--accent-glow), transparent 60%);
+      filter: blur(60px);
+    }
+
+    .goal-card>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .goal-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .goal-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1.5rem;
+      max-width: 800px;
+    }
+
+    .goal-title .italic {
+      font-style: normal;
+      color: var(--text);
+    }
+
+    .goal-desc {
+      color: var(--text-dim);
+      font-size: 1.1rem;
+      max-width: 680px;
+      margin-bottom: 2rem;
+    }
+
+    .goal-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .goal-stack-item {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text);
+      backdrop-filter: blur(10px);
+    }
+
+    .quote-section {
+      padding: 6rem 0;
+      text-align: center;
+    }
+
+    .quote-mark {
+      font-family: var(--font-display);
+      font-style: normal;
+      font-size: 5rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .quote-text {
+      font-family: var(--font-display);
+      font-style: normal;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--text);
+      max-width: 700px;
+      margin: 0 auto 1rem;
+      line-height: 1.2;
+    }
+
+    .quote-cite {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-mute);
+      letter-spacing: 0.15em;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .contact-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-title .italic {
+      font-style: normal;
+      color: var(--text);
+    }
+
+    .contact-desc {
+      color: var(--text-dim);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+      background: var(--surface-2);
+      transform: translateX(4px);
+    }
+
+    .contact-link-label {
+      color: var(--text-mute);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-link-value {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .contact-arrow {
+      width: 20px;
+      height: 20px;
+      color: var(--text-mute);
+      transition: all 0.3s ease;
+    }
+
+    .contact-link:hover .contact-arrow {
+      color: var(--accent);
+      transform: translate(3px, -3px);
+    }
+
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-mute);
+    }
+
+    footer .accent {
+      color: var(--accent);
+    }
+
+    [data-lang] {
+      display: none;
+    }
+
+    body[data-current-lang="de"] [data-lang="de"] {
+      display: inline;
+    }
+
+    body[data-current-lang="en"] [data-lang="en"] {
+      display: inline;
+    }
+
+    body[data-current-lang="de"] .block[data-lang="de"],
+    body[data-current-lang="de"] p[data-lang="de"],
+    body[data-current-lang="de"] div[data-lang="de"],
+    body[data-current-lang="de"] li[data-lang="de"] {
+      display: block;
+    }
+
+    body[data-current-lang="en"] .block[data-lang="en"],
+    body[data-current-lang="en"] p[data-lang="en"],
+    body[data-current-lang="en"] div[data-lang="en"],
+    body[data-current-lang="en"] li[data-lang="en"] {
+      display: block;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media print {
+
+      body::before,
+      body::after {
+        display: none;
+      }
+
+      nav {
+        position: static;
+      }
+    }
+  </style>
+</head>
+
+<body data-current-lang="de" data-theme="light">
+
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">TAYYAR EREN</div>
+      <div class="nav-links">
+        <a href="#about" data-lang="de">Über mich</a><a href="#about" data-lang="en">About</a>
+        <a href="#werdegang" data-lang="de">Werdegang</a><a href="#werdegang" data-lang="en">Journey</a>
+        <a href="#skills" data-lang="de">Skills</a><a href="#skills" data-lang="en">Skills</a>
+        <a href="#projects" data-lang="de">Projekte</a><a href="#projects" data-lang="en">Projects</a>
+        <a href="#contact" data-lang="de">Kontakt</a><a href="#contact" data-lang="en">Contact</a>
+        <div class="nav-controls">
+          <div class="lang-toggle">
+            <button onclick="setLang('de')">DE</button>
+            <button onclick="setLang('en')">EN</button>
+          </div>
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"
+            title="Hell / Dunkel">
+            <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+            </svg>
+            <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-meta">
+        <span>◉ PORTFOLIO / 2026</span>
+        <span><span class="status-dot"></span><span data-lang="de">Offen für neue Herausforderungen</span><span
+            data-lang="en">Open to new opportunities</span></span>
+      </div>
+
+      <div class="hero-grid">
+        <div>
+          <div class="hero-eyebrow" data-lang="de">▸ Quereinsteiger mit Tiefe</div>
+          <div class="hero-eyebrow" data-lang="en">▸ Career changer with depth</div>
+
+          <h1 class="hero-title">Tayyar Eren</h1>
+          <p class="hero-subtitle">
+            <span data-lang="de"><strong style="color:var(--text)">Systemadministrator</strong> mit BWL-Bachelor, zehn
+              Jahren Unternehmertum und Buchhaltungs-Expertise. Aktuell in der <strong
+                style="color:var(--text)">IT-Umschulung</strong> — Brücken bauen zwischen Geschäft, Daten und
+              Infrastruktur.</span>
+            <span data-lang="en"><strong style="color:var(--text)">System Administrator</strong> with a BWL Bachelor
+              degree, ten years of entrepreneurship and accounting expertise. Currently in <strong
+                style="color:var(--text)">IT retraining (Umschulung)</strong> — building bridges between business, data
+              and infrastructure.</span>
+          </p>
+          <div class="hero-tags">
+            <span class="hero-tag">Windows Server</span>
+            <span class="hero-tag">Active Directory</span>
+            <span class="hero-tag">PowerShell</span>
+            <span class="hero-tag">Linux · VMs</span>
+            <span class="hero-tag">Firewall · Netzwerk</span>
+            <span class="hero-tag gold">BWL · DATEV</span>
+            <span class="hero-tag gold">Lexware</span>
+          </div>
+        </div>
+
+        <div class="hero-photo">
+          <div class="photo-frame">
+            <!-- ════════════════════════════════════════════════════════════
+               PROFIL FOTOĞRAFI: Bu sayfa için resmi "Bilder/tayyarerenPortfolio.png"
+               olarak kullanın. Dosya, portfolio.html ile aynı klasördeki Bilder
+               klasöründe olmalı.
+               (Önerilen: 4:5 dikey, en az 800×1000px)
+               ════════════════════════════════════════════════════════════ -->
+            <img src="Bilder/tayyarerenPortfolio.png" alt="Profilbild Tayyar Eren" class="photo-img"
+              onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';">
+            <div class="photo-placeholder" id="photo-fallback">
+              <div class="photo-placeholder-content">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>
+                <span data-lang="de">FOTO PLATZHALTER<br>profile.jpg hochladen</span>
+                <span data-lang="en">PHOTO PLACEHOLDER<br>upload profile.jpg</span>
+              </div>
+            </div>
+          </div>
+          <div class="photo-info"><span>TAYYAR EREN</span><span>FREIBURG / DE</span></div>
+        </div>
+      </div>
+      <nav class="section-sidebar" aria-label="Seitenabschnitte">
+        <a class="sidebar-drawer drawer-1" href="#about">
+          <span class="drawer-icon drawer-shape circle"></span>
+          <span class="drawer-label">Über mich</span>
+        </a>
+        <a class="sidebar-drawer drawer-2" href="#werdegang">
+          <span class="drawer-icon drawer-shape square"></span>
+          <span class="drawer-label">Werdegang</span>
+        </a>
+        <a class="sidebar-drawer drawer-3" href="#skills">
+          <span class="drawer-icon drawer-shape triangle"></span>
+          <span class="drawer-label">Skills</span>
+        </a>
+        <a class="sidebar-drawer drawer-4" href="#projects">
+          <span class="drawer-icon drawer-shape band"></span>
+          <span class="drawer-label">Projekte</span>
+        </a>
+        <a class="sidebar-drawer drawer-5" href="#contact">
+          <span class="drawer-icon drawer-shape square"></span>
+          <span class="drawer-label">Kontakt</span>
+        </a>
+      </nav>
+    </div>
+  </section>
+
+  <section id="about" class="reveal">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span data-lang="de">Über <span class="italic">mich</span></span><span
+            data-lang="en">About <span class="italic">me</span></span></h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p data-lang="de" class="block">Mein Weg ist <span class="accent-text">nicht linear</span> — und das ist meine
+            Stärke. Mit einem <strong>BWL-Bachelor</strong> in der Tasche habe ich zehn Jahre lang Unternehmen geführt:
+            zwei Restaurants von 2009 bis 2016, danach ein Feinkost-Geschäft. Ich kenne <strong>Bilanzen, Cashflow,
+              Personal, Lieferketten</strong> — nicht aus Lehrbüchern, sondern aus eigener Verantwortung.</p>
+          <p data-lang="de" class="block">Heute baue ich auf diesem Fundament eine neue technische Karriere. Bei
+            <strong>Wikosoftware GmbH</strong> habe ich als Praktikant in der Rolle des
+            <strong>Systemadministrators</strong> Netzwerke, Firewalls, mehrere Windows-Server-VMs und Linux-Server
+            betreut. Active-Directory-Audits und Wikoweb-Installationen habe ich automatisiert — weil
+            <strong>wiederkehrende Arbeit verdient zu verschwinden.</strong>
+          </p>
+          <p data-lang="de" class="block">Parallel halte ich meine kaufmännische Seite scharf: <strong>DATEV</strong>,
+            <strong>Lexware</strong>, Rechnungswesen — Zertifikate und Kurse. Was mich antreibt: die seltene
+            Schnittstelle aus <span class="accent-text">Wirtschaft, IT und Buchhaltung.</span>
+          </p>
+
+          <p data-lang="en" class="block">My path is <span class="accent-text">not linear</span> — and that's my
+            strength. With a <strong>BWL Bachelor degree</strong> in hand, I ran businesses for ten years: two
+            restaurants from 2009 to 2016, then a Feinkost (specialty food) business. I know <strong>balance sheets,
+              cashflow, personnel, supply chains</strong> — not from textbooks, but from being responsible.</p>
+          <p data-lang="en" class="block">Today, I'm building a new technical career on that foundation. At
+            <strong>Wikosoftware GmbH</strong>, I worked as an intern in the role of <strong>System
+              Administrator</strong>, managing networks, firewalls, multiple Windows Server VMs and Linux servers. I
+            automated Active Directory audits and Wikoweb installations using PowerShell — because <strong>repetitive
+              work deserves to disappear.</strong>
+          </p>
+          <p data-lang="en" class="block">In parallel, I keep my commercial edge sharp: <strong>DATEV</strong>,
+            <strong>Lexware</strong>, financial accounting — certificates and courses. What drives me: the rare
+            intersection of <span class="accent-text">business, IT and accounting.</span>
+          </p>
+        </div>
+
+        <div class="about-meta">
+          <div class="about-meta-item">
+            <span class="about-meta-label" data-lang="de">Standort</span><span class="about-meta-label"
+              data-lang="en">Location</span>
+            <span class="about-meta-value">Freiburg im Breisgau, DE</span>
+          </div>
+          <div class="about-meta-item">
+            <span class="about-meta-label" data-lang="de">Aktueller Status</span><span class="about-meta-label"
+              data-lang="en">Current status</span>
+            <span class="about-meta-value" data-lang="de">IT-Umschulung</span>
+            <span class="about-meta-value" data-lang="en">IT Retraining (Umschulung)</span>
+          </div>
+          <div class="about-meta-item">
+            <span class="about-meta-label" data-lang="de">Abschluss</span><span class="about-meta-label"
+              data-lang="en">Degree</span>
+            <span class="about-meta-value" data-lang="de">Bachelor BWL · absolviert</span>
+            <span class="about-meta-value" data-lang="en">Bachelor BWL · completed</span>
+          </div>
+          <div class="about-meta-item">
+            <span class="about-meta-label" data-lang="de">Letzte Position</span><span class="about-meta-label"
+              data-lang="en">Recent role</span>
+            <span class="about-meta-value" data-lang="de">Systemadministrator · Praktikum<br>Wikosoftware GmbH</span>
+            <span class="about-meta-value" data-lang="en">System Administrator · Intern<br>Wikosoftware GmbH</span>
+          </div>
+          <div class="about-meta-item">
+            <span class="about-meta-label" data-lang="de">Schwerpunkte</span><span class="about-meta-label"
+              data-lang="en">Focus areas</span>
+            <span class="about-meta-value" data-lang="de">IT-Infrastruktur · Buchhaltung · Wirtschaft</span>
+            <span class="about-meta-value" data-lang="en">IT infrastructure · Accounting · Business</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="werdegang" class="reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">02 — </span>
+        <h2 class="section-title"><span data-lang="de">Werde<span class="italic">gang</span></span><span
+            data-lang="en">My <span class="italic">journey</span></span></h2>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <span class="timeline-period" data-lang="de">▸ AKADEMISCHER ABSCHLUSS</span>
+          <span class="timeline-period" data-lang="en">▸ ACADEMIC DEGREE</span>
+          <h3 class="timeline-title"><span data-lang="de">Bachelor BWL</span><span data-lang="en">Bachelor BWL</span>
+          </h3>
+          <div class="timeline-org" data-lang="de">Betriebswirtschaftslehre · Studium absolviert</div>
+          <div class="timeline-org" data-lang="en">Business Administration · Degree completed</div>
+          <p class="timeline-desc" data-lang="de">Solides Fundament in Wirtschaft, Management und Finanzen. Die
+            theoretische Basis für alles, was danach kam.</p>
+          <p class="timeline-desc" data-lang="en">Solid foundation in business, management and finance. The theoretical
+            base for everything that followed.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-period">2009 — 2016</span>
+          <h3 class="timeline-title"><span data-lang="de">Selbstständig · Zwei Restaurants</span><span
+              data-lang="en">Self-employed · Two restaurants</span></h3>
+          <div class="timeline-org" data-lang="de">Inhaber & Geschäftsführer</div>
+          <div class="timeline-org" data-lang="en">Owner & Managing Director</div>
+          <p class="timeline-desc" data-lang="de">Sieben Jahre Verantwortung für zwei eigene Restaurants — vom
+            Tagesgeschäft über Personal und Buchhaltung bis zur strategischen Entwicklung. Praxis pur.</p>
+          <p class="timeline-desc" data-lang="en">Seven years of full responsibility for two restaurants — from daily
+            operations and staff to bookkeeping and strategy. Pure hands-on experience.</p>
+          <div class="timeline-tags">
+            <span class="timeline-tag" data-lang="de">Unternehmensführung</span><span class="timeline-tag"
+              data-lang="en">Business management</span>
+            <span class="timeline-tag" data-lang="de">Personal</span><span class="timeline-tag" data-lang="en">HR</span>
+            <span class="timeline-tag" data-lang="de">Finanzen</span><span class="timeline-tag"
+              data-lang="en">Finance</span>
+            <span class="timeline-tag" data-lang="de">Kundenservice</span><span class="timeline-tag"
+              data-lang="en">Customer service</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-period">2016 +</span>
+          <h3 class="timeline-title"><span data-lang="de">Selbstständig · Feinkost-Geschäft</span><span
+              data-lang="en">Self-employed · Specialty food business</span></h3>
+          <div class="timeline-org" data-lang="de">Inhaber & Geschäftsführer</div>
+          <div class="timeline-org" data-lang="en">Owner & Managing Director</div>
+          <p class="timeline-desc" data-lang="de">Neue Branche, gleicher Anspruch. Aufbau eines Feinkost-Geschäfts
+            inklusive Sortimentskonzeption, Lieferantenmanagement und Kundenbindung.</p>
+          <p class="timeline-desc" data-lang="en">New industry, same standard. Building a specialty food business
+            including product range, supplier management, and customer retention.</p>
+          <div class="timeline-tags">
+            <span class="timeline-tag" data-lang="de">Einkauf</span><span class="timeline-tag"
+              data-lang="en">Procurement</span>
+            <span class="timeline-tag" data-lang="de">Marketing</span><span class="timeline-tag"
+              data-lang="en">Marketing</span>
+            <span class="timeline-tag" data-lang="de">Logistik</span><span class="timeline-tag"
+              data-lang="en">Logistics</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-period" data-lang="de">▸ WEITERBILDUNG</span>
+          <span class="timeline-period" data-lang="en">▸ PROFESSIONAL CERTIFICATIONS</span>
+          <h3 class="timeline-title"><span data-lang="de">Buchhaltung & Rechnungswesen</span><span
+              data-lang="en">Accounting & Bookkeeping</span></h3>
+          <div class="timeline-org">DATEV · Lexware · Rechnungswesen</div>
+          <p class="timeline-desc" data-lang="de">Zertifizierte Kurse in den marktführenden deutschen
+            Buchhaltungssystemen. Praxisnah, abschlussorientiert.</p>
+          <p class="timeline-desc" data-lang="en">Certified courses in the leading German accounting systems. Practical
+            and qualification-oriented.</p>
+          <div class="timeline-tags">
+            <span class="timeline-tag">DATEV</span>
+            <span class="timeline-tag">Lexware</span>
+            <span class="timeline-tag" data-lang="de">Rechnungswesen</span><span class="timeline-tag"
+              data-lang="en">Financial accounting</span>
+            <span class="timeline-tag" data-lang="de">Steuerrecht-Grundlagen</span><span class="timeline-tag"
+              data-lang="en">Tax basics</span>
+          </div>
+        </div>
+
+        <div class="timeline-item current">
+          <span class="timeline-period" data-lang="de">▸ AKTUELL · UMSCHULUNG</span>
+          <span class="timeline-period" data-lang="en">▸ CURRENT · RETRAINING</span>
+          <h3 class="timeline-title"><span data-lang="de">IT-Umschulung — Systemintegration</span><span
+              data-lang="en">IT Retraining — System Integration</span></h3>
+          <div class="timeline-org" data-lang="de">Vorbereitung auf die IHK Abschlussprüfung</div>
+          <div class="timeline-org" data-lang="en">Preparing for the IHK final exam</div>
+          <p class="timeline-desc" data-lang="de">Bewusster Karrierewechsel in die IT. Intensive Vorbereitung auf die
+            IHK AP2: Netzwerktechnik, Servervirtualisierung, IT-Sicherheit, Datenbanken, Cloud-Grundlagen.</p>
+          <p class="timeline-desc" data-lang="en">Deliberate career change into IT. Intensive preparation for the IHK
+            final exam: networking, server virtualization, IT security, databases, cloud fundamentals.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-period" data-lang="de">▸ PRAKTIKUM</span>
+          <span class="timeline-period" data-lang="en">▸ INTERNSHIP</span>
+          <h3 class="timeline-title"><span data-lang="de">Systemadministrator</span><span data-lang="en">System
+              Administrator</span></h3>
+          <div class="timeline-org" data-lang="de">Praktikum · Wikosoftware GmbH · Freiburg</div>
+          <div class="timeline-org" data-lang="en">Internship · Wikosoftware GmbH · Freiburg</div>
+          <p class="timeline-desc" data-lang="de">Betreuung der IT-Infrastruktur in einem produktiven Umfeld: mehrere
+            Windows-Server-VMs, Linux-Server, Firewalls, Active Directory. Eigenständige Automatisierung von AD-Audits
+            und Wikoweb-Installationen per PowerShell.</p>
+          <p class="timeline-desc" data-lang="en">Managing IT infrastructure in a live environment: multiple Windows
+            Server VMs, Linux servers, firewalls, Active Directory. Independently automated AD audits and Wikoweb
+            installations using PowerShell.</p>
+          <div class="timeline-tags">
+            <span class="timeline-tag">Windows Server</span>
+            <span class="timeline-tag">Active Directory</span>
+            <span class="timeline-tag">Linux</span>
+            <span class="timeline-tag">PowerShell</span>
+            <span class="timeline-tag">Firewall</span>
+            <span class="timeline-tag">Hyper-V</span>
+          </div>
+        </div>
+
+        <div class="timeline-item future">
+          <span class="timeline-period" data-lang="de">▸ NÄCHSTES KAPITEL</span>
+          <span class="timeline-period" data-lang="en">▸ NEXT CHAPTER</span>
+          <h3 class="timeline-title"><span data-lang="de">Richtung Data Science</span><span data-lang="en">Toward Data
+              Science</span></h3>
+          <p class="timeline-desc" data-lang="de">Aus IT-Erfahrung und BWL-Verständnis wird Datenkompetenz. Python,
+            pandas, statistische Modelle — Daten in Entscheidungen verwandeln.</p>
+          <p class="timeline-desc" data-lang="en">Turning IT experience and business understanding into data competency.
+            Python, pandas, statistical models — transforming data into decisions.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-section reveal">
+    <div class="container">
+      <div class="quote-mark">"</div>
+      <p class="quote-text" data-lang="de">Man lernt nie aus.</p>
+      <p class="quote-text" data-lang="en">You never stop learning.</p>
+      <div class="quote-cite">— TAYYAR EREN</div>
+    </div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">03 — </span>
+        <h2 class="section-title"><span data-lang="de">Kompetenz<span class="italic">felder</span></span><span
+            data-lang="en">Areas of <span class="italic">expertise</span></span></h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <svg class="skill-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 1 0 0-6m-16.5-3a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3m-19.5 0a4.5 4.5 0 0 1 .9-2.7L5.737 5.1a3.375 3.375 0 0 1 2.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 0 1 .9 2.7m0 0a3 3 0 0 1-3 3" />
+          </svg>
+          <h3 class="skill-title"><span data-lang="de">Server & Netzwerk</span><span data-lang="en">Server &
+              Network</span></h3>
+          <ul class="skill-list">
+            <li>Windows Server (mehrere VMs)</li>
+            <li>Linux Server</li>
+            <li>Active Directory · GPO</li>
+            <li>Hyper-V · Virtualisierung</li>
+            <li>Firewall · VPN · RDP</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <svg class="skill-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z" />
+          </svg>
+          <h3 class="skill-title"><span data-lang="de">Automation & Scripting</span><span data-lang="en">Automation &
+              Scripting</span></h3>
+          <ul class="skill-list">
+            <li>PowerShell (Advanced)</li>
+            <li>Bash · Linux Shell</li>
+            <li>AD Automation</li>
+            <li>Installation Scripts</li>
+            <li>SSL · Cert Management</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <svg class="skill-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75" />
+          </svg>
+          <h3 class="skill-title"><span data-lang="de">Datenbanken</span><span data-lang="en">Databases</span></h3>
+          <ul class="skill-list">
+            <li>SQL Server · SSMS</li>
+            <li>T-SQL · Queries</li>
+            <li>Backup & Recovery</li>
+            <li>Schema Design</li>
+            <li>Performance Tuning</li>
+          </ul>
+        </div>
+
+        <div class="skill-card business">
+          <svg class="skill-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+          </svg>
+          <h3 class="skill-title"><span data-lang="de">Buchhaltung</span><span data-lang="en">Accounting</span></h3>
+          <ul class="skill-list">
+            <li>DATEV</li>
+            <li>Lexware</li>
+            <li><span data-lang="de">Rechnungswesen</span><span data-lang="en">Financial accounting</span></li>
+            <li><span data-lang="de">Steuerrecht-Grundlagen</span><span data-lang="en">Tax basics</span></li>
+            <li><span data-lang="de">Bilanzanalyse</span><span data-lang="en">Balance sheet analysis</span></li>
+          </ul>
+        </div>
+
+        <div class="skill-card business">
+          <svg class="skill-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+          </svg>
+          <h3 class="skill-title"><span data-lang="de">Wirtschaft & Führung</span><span data-lang="en">Business &
+              Leadership</span></h3>
+          <ul class="skill-list">
+            <li><span data-lang="de">BWL Bachelor</span><span data-lang="en">BWL Bachelor</span></li>
+            <li><span data-lang="de">10+ Jahre Selbstständigkeit</span><span data-lang="en">10+ years
+                self-employed</span></li>
+            <li><span data-lang="de">Personalführung</span><span data-lang="en">Team leadership</span></li>
+            <li><span data-lang="de">Cashflow-Management</span><span data-lang="en">Cashflow management</span></li>
+            <li><span data-lang="de">Strategische Planung</span><span data-lang="en">Strategic planning</span></li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <svg class="skill-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5" />
+          </svg>
+          <h3 class="skill-title"><span data-lang="de">Werkzeuge & Lernen</span><span data-lang="en">Tools &
+              Learning</span></h3>
+          <ul class="skill-list">
+            <li>Jira · Confluence</li>
+            <li>Git · GitHub</li>
+            <li>VS Code · SSMS</li>
+            <li>Python · pandas <span data-lang="de">(lernend)</span><span data-lang="en">(learning)</span></li>
+            <li>Office 365 · Excel</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">04 — </span>
+        <h2 class="section-title"><span data-lang="de">Ausgewählte <span class="italic">Projekte</span></span><span
+            data-lang="en">Selected <span class="italic">work</span></span></h2>
+      </div>
+
+      <div class="projects-list">
+        <div class="project-card">
+          <div class="project-number">001</div>
+          <div class="project-content">
+            <h3 class="project-title">
+              AD-Audit Tool
+              <span class="project-badge" data-lang="de">Abgeschlossen</span><span class="project-badge"
+                data-lang="en">Completed</span>
+            </h3>
+            <p class="project-desc" data-lang="de">PowerShell-Tool zur Sicherheitsprüfung einer
+              Active-Directory-Umgebung. Analysiert Benutzer, Gruppen, privilegierte Konten und
+              Sicherheitskonfigurationen. Erzeugt strukturierte Reports zur Identifikation von Risiken und
+              Fehlkonfigurationen.</p>
+            <p class="project-desc" data-lang="en">PowerShell tool for security auditing an Active Directory
+              environment. Analyzes users, groups, privileged accounts, and security configurations. Generates
+              structured reports to identify risks and misconfigurations.</p>
+            <div class="project-tech">
+              <span class="tech-pill">PowerShell</span>
+              <span class="tech-pill">Active Directory</span>
+              <span class="tech-pill">Security Audit</span>
+              <span class="tech-pill">Reporting</span>
+            </div>
+          </div>
+          <svg class="project-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+          </svg>
+        </div>
+
+        <div class="project-card">
+          <div class="project-number">002</div>
+          <div class="project-content">
+            <h3 class="project-title">
+              Wikoweb Automatic Installation
+              <span class="project-badge" data-lang="de">Produktiv</span><span class="project-badge"
+                data-lang="en">Production</span>
+            </h3>
+            <p class="project-desc" data-lang="de">PowerShell-Automatisierung zur Beschleunigung und Standardisierung
+              der Wikoweb-Installation. Reduziert manuelle Konfigurationsschritte, prüft Voraussetzungen automatisch,
+              behandelt SSL-Zertifikate und führt Post-Install-Validierung durch.</p>
+            <p class="project-desc" data-lang="en">PowerShell automation to accelerate and standardize Wikoweb
+              installation. Reduces manual configuration steps, validates prerequisites automatically, handles SSL
+              certificates and performs post-install validation.</p>
+            <div class="project-tech">
+              <span class="tech-pill">PowerShell</span>
+              <span class="tech-pill">IIS</span>
+              <span class="tech-pill">SSL/TLS</span>
+              <span class="tech-pill">Windows Server</span>
+              <span class="tech-pill">Automation</span>
+            </div>
+          </div>
+          <svg class="project-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="languages" class="reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">05 — </span>
+        <h2 class="section-title"><span data-lang="de">Sprachen</span><span data-lang="en">Languages</span></h2>
+      </div>
+
+      <div class="languages-grid">
+        <div class="lang-card">
+          <div class="lang-flag">TR / TÜRKISCH</div>
+          <div class="lang-name">Türkisch</div>
+          <div class="lang-level" data-lang="de">Muttersprache</div>
+          <div class="lang-level" data-lang="en">Native</div>
+          <div class="lang-bar">
+            <div class="lang-bar-fill" style="width:100%"></div>
+          </div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-flag">DE / DEUTSCH</div>
+          <div class="lang-name">Deutsch</div>
+          <div class="lang-level" data-lang="de">Fließend · C1</div>
+          <div class="lang-level" data-lang="en">Fluent · C1</div>
+          <div class="lang-bar">
+            <div class="lang-bar-fill" style="width:92%"></div>
+          </div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-flag">EN / ENGLISH</div>
+          <div class="lang-name">English</div>
+          <div class="lang-level" data-lang="de">Gut · B2</div>
+          <div class="lang-level" data-lang="en">Good · B2</div>
+          <div class="lang-bar">
+            <div class="lang-bar-fill" style="width:75%"></div>
+          </div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-flag">IT / ITALIANO</div>
+          <div class="lang-name">Italiano</div>
+          <div class="lang-level" data-lang="de">Fließend · C1</div>
+          <div class="lang-level" data-lang="en">Fluent · C1</div>
+          <div class="lang-bar">
+            <div class="lang-bar-fill" style="width:92%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="goal" class="reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">06 — </span>
+        <h2 class="section-title"><span data-lang="de">Wohin die <span class="italic">Reise</span> geht</span><span
+            data-lang="en">Where I'm <span class="italic">heading</span></span></h2>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-label" data-lang="de">▸ Langfristiges Ziel</div>
+        <div class="goal-label" data-lang="en">▸ Long-term goal</div>
+        <h3 class="goal-title">
+          <span data-lang="de">Wo <span class="italic">Wirtschaft</span>, <span class="italic">IT</span> und <span
+              class="italic">Daten</span> zusammenkommen.</span>
+          <span data-lang="en">Where <span class="italic">business</span>, <span class="italic">IT</span> and <span
+              class="italic">data</span> converge.</span>
+        </h3>
+        <p class="goal-desc" data-lang="de">Mein nächstes Ziel: <strong style="color:var(--text)">Data Science</strong>
+          mit wirtschaftlichem Hintergrund. Mein BWL-Studium gibt mir das Verständnis für die richtigen Fragen, meine
+          Buchhaltungs-Erfahrung den Blick für Zahlen, meine IT-Praxis das Werkzeug. Was fehlt, ist die Brücke: Python,
+          Statistik, ML — Schritt für Schritt.</p>
+        <p class="goal-desc" data-lang="en">My next goal: <strong style="color:var(--text)">Data Science</strong> with a
+          business background. My BWL studies give me the framing of the right questions, my accounting experience the
+          feel for numbers, my IT work the tooling. What's missing is the bridge: Python, statistics, ML — step by step.
+        </p>
+        <div class="goal-stack">
+          <span class="goal-stack-item">Python</span>
+          <span class="goal-stack-item">pandas</span>
+          <span class="goal-stack-item">NumPy</span>
+          <span class="goal-stack-item">scikit-learn</span>
+          <span class="goal-stack-item">matplotlib</span>
+          <span class="goal-stack-item">Statistics</span>
+          <span class="goal-stack-item">SQL Analytics</span>
+          <span class="goal-stack-item">Business Analytics</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">07 — </span>
+        <h2 class="section-title"><span data-lang="de">Kontakt</span><span data-lang="en">Contact</span></h2>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <h3 class="contact-title">
+            <span data-lang="de">Lass uns <span class="italic">reden.</span></span>
+            <span data-lang="en">Let's <span class="italic">talk.</span></span>
+          </h3>
+          <p class="contact-desc" data-lang="de">Offen für Positionen in IT-Administration, IT-Consulting für
+            mittelständische Unternehmen oder Schnittstellen-Rollen zwischen Business und Technik. Auch ein guter Kaffee
+            in Freiburg ist immer eine gute Idee.</p>
+          <p class="contact-desc" data-lang="en">Open to positions in IT administration, IT consulting for SMEs, or
+            interface roles between business and technology. A good coffee in Freiburg is also always a good idea.</p>
+        </div>
+
+        <div class="contact-links">
+          <a href="mailto:tayyareren@live.de" class="contact-link">
+            <div>
+              <span class="contact-link-label">Email</span>
+              <span class="contact-link-value">tayyareren@live.de</span>
+            </div>
+            <svg class="contact-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </a>
+          <a href="tel:+4917620996901" class="contact-link">
+            <div>
+              <span class="contact-link-label">Phone</span>
+              <span class="contact-link-value">+49 176 209 6901</span>
+            </div>
+            <svg class="contact-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </a>
+          <a href="https://github.com/TayyarEren/tayyar-CV" class="contact-link" target="_blank" rel="noopener">
+            <div>
+              <span class="contact-link-label">GitHub</span>
+              <span class="contact-link-value">github.com/TayyarEren/tayyar-CV</span>
+            </div>
+            <svg class="contact-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/tayyar-eren-a1824a100/overlay/contact-info" class="contact-link"
+            target="_blank" rel="noopener">
+            <div>
+              <span class="contact-link-label">LinkedIn</span>
+              <span class="contact-link-value">linkedin.com/in/tayyar-eren-a1824a100/overlay/contact-info</span>
+            </div>
+            <svg class="contact-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <span data-lang="de">Gebaut mit <span class="accent">♥</span> in Freiburg · © 2026 Tayyar Eren</span>
+      <span data-lang="en">Built with <span class="accent">♥</span> in Freiburg · © 2026 Tayyar Eren</span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const current = document.body.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.body.setAttribute('data-theme', next);
+      localStorage.setItem('preferred-theme', next);
+    }
+
+    (function () {
+      const savedTheme = localStorage.getItem('preferred-theme');
+      const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      const initialTheme = savedTheme || (prefersLight ? 'light' : 'dark');
+      document.body.setAttribute('data-theme', initialTheme);
+    })();
+
+    function setLang(lang) {
+      document.body.setAttribute('data-current-lang', lang);
+      document.documentElement.setAttribute('lang', lang);
+      document.querySelectorAll('.lang-toggle button').forEach(b => {
+        if (b.textContent.trim().toLowerCase() === lang) b.classList.add('active');
+        else b.classList.remove('active');
+      });
+      localStorage.setItem('preferred-lang', lang);
+    }
+
+    (function () {
+      const saved = localStorage.getItem('preferred-lang');
+      const browserLang = navigator.language.startsWith('de') ? 'de' : 'en';
+      const initial = saved || browserLang;
+      document.body.setAttribute('data-current-lang', initial);
+      document.documentElement.setAttribute('lang', initial);
+      document.querySelectorAll('.lang-toggle button').forEach(b => {
+        if (b.textContent.trim().toLowerCase() === initial) b.classList.add('active');
+        else b.classList.remove('active');
+      });
+    })();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
